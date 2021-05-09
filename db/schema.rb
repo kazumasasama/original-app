@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_095638) do
+ActiveRecord::Schema.define(version: 2021_05_09_051637) do
+
+  create_table "cunstomers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number1"
+    t.string "phone_number2"
+    t.string "email"
+    t.string "address"
+    t.string "prefecture"
+    t.string "post_code"
+    t.integer "gender_id"
+    t.date "birthday"
+    t.text "memo"
+    t.boolean "new_or_returning"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gender_id"], name: "index_cunstomers_on_gender_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.integer "g_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.integer "role_id"
@@ -44,4 +68,5 @@ ActiveRecord::Schema.define(version: 2020_05_01_095638) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "cunstomers", "genders"
 end

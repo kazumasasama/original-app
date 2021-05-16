@@ -121,6 +121,21 @@ export const constantRoutes = [
         meta: { title: 'profile', icon: 'user', noCache: true }
       }
     ]
+  },
+
+  {
+    path: '/customer',
+    component: Layout,
+    redirect: '/customer/index',
+    // hidden: true,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/customer/index'),
+        name: 'Customer',
+        meta: { title: 'customer', icon: 'user', noCache: true }
+      }
+    ]
   }
 ]
 

@@ -1,21 +1,12 @@
-import { getCustomerInfo } from '@/api/customers'
-import {
-  setToken,
-  setClient,
-  setUid,
-  removeToken,
-  removeClient,
-  removeUid
-} 
+import { getCustomerInfo } from '@/api/customer'
 
 const state = {
-    customerAll: [],
+  customerAll: []
 }
 
 const mutations = {
-    SET_CUSTOMER_ALL: (state, data) => {
-        state.customerAll = data
-    }
+  SET_CUSTOMER_ALL: (state, data) => {
+    state.customerAll = data
   }
 }
 

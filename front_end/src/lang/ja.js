@@ -62,7 +62,8 @@ export default {
     clipboardDemo: 'Clipboard',
     i18n: '多言語',
     externalLink: '外部リンク',
-    profile: 'プロフィール'
+    profile: 'プロフィール',
+    customer: '顧客情報'
   },
   navbar: {
     dashboard: 'トップ',

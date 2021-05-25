@@ -1,6 +1,6 @@
 <template>
   <div class="app-container documentation-container">
-    <CustomerTable></CustomerTable>
+    <CustomerTable :customers="customer"></CustomerTable>
   </div>
 </template>
 
@@ -11,6 +11,14 @@ export default {
   name: 'Customer',
   components: { CustomerTable },
   data() {
+  },
+  computed: {
+    ...mapGetters({
+      customers: 'customer/customerAll'
+    })
+  },
+  mounted: function () {
+      this.$store.dispatch('/customer/getCustomerInfo')
   }
 }
 </script>

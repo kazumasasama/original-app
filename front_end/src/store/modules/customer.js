@@ -10,6 +10,10 @@ const mutations = {
   }
 }
 
+const getters = {
+  customerAll: state => state.customerAll
+}
+
 const actions = {
   // get user info
   getCustomerInfo({ commit, state }) {
@@ -32,6 +36,7 @@ const actions = {
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }

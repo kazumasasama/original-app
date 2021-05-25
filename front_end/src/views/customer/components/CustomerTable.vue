@@ -1,6 +1,6 @@
   <template>
     <el-table
-      :data="tableData"
+      :data="customers"
       style="width: 100%">
       <el-table-column
         prop="date"
@@ -20,27 +20,14 @@
   </template>
 
 <script>
-    export default {
-      data() {
-        return {
-          tableData: [{
-            date: '2016-05-03',
-            name: 'Tom',
-            address: 'No. 189, Grove St, Los Angeles'
-          }, {
-            date: '2016-05-02',
-            name: 'Tom',
-            address: 'No. 189, Grove St, Los Angeles'
-          }, {
-            date: '2016-05-04',
-            name: 'Tom',
-            address: 'No. 189, Grove St, Los Angeles'
-          }, {
-            date: '2016-05-01',
-            name: 'Tom',
-            address: 'No. 189, Grove St, Los Angeles'
-          }]
+  export default {
+    props: {
+      customers: {
+        type: Array,
+        default() {
+          return []
         }
-      }
-    }
+      },
+    },
+  }
   </script>

@@ -1,24 +1,23 @@
 <template>
   <div class="app-container documentation-container">
-    <CustomerTable :customers="customer"></CustomerTable>
+    <CustomerTable :customers="customer" />
   </div>
 </template>
 
 <script>
 import CustomerTable from './components/CustomerTable'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Customer',
   components: { CustomerTable },
-  data() {
-  },
   computed: {
     ...mapGetters({
       customers: 'customer/customerAll'
     })
   },
-  mounted: function () {
-      this.$store.dispatch('/customer/getCustomerInfo')
+  mounted() {
+    this.$store.dispatch('customer/getCustomerInfo')
   }
 }
 </script>

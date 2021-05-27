@@ -20,7 +20,6 @@ const actions = {
     return new Promise((resolve, reject) => {
       getCustomerInfo(state.token).then(response => {
         const { data } = response
-
         if (!data) {
           reject('Verification failed, please Login again.')
         }

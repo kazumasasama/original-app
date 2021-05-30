@@ -136,7 +136,14 @@ export const constantRoutes = [
         meta: { title: 'customer', icon: 'user', noCache: true }
       }
     ]
+  },
+  {
+    path: '/customer/new',
+    component: Layout,
+    // redirect: '/customer/index',
+    hidden: true,
   }
+
 ]
 
 /**

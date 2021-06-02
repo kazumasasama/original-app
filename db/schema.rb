@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_05_09_051637) do
 
-  create_table "cunstomers", force: :cascade do |t|
+  create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "phone_number1"
     t.string "phone_number2"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_09_051637) do
     t.boolean "new_or_returning"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["gender_id"], name: "index_cunstomers_on_gender_id"
+    t.index ["gender_id"], name: "index_customers_on_gender_id"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -68,5 +68,5 @@ ActiveRecord::Schema.define(version: 2021_05_09_051637) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "cunstomers", "genders"
+  add_foreign_key "customers", "genders"
 end

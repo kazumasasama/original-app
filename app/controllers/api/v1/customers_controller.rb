@@ -3,7 +3,8 @@ class Api::V1::CustomersController < ApplicationController
 
   # GET /customers or /customers.json
   def index
-    @customers = Customer.all
+    customers = Customer.all
+    render json: { status: 'SUCCESS', message: 'Loaded customers', data: customers }
   end
 
   # GET /customers/1 or /customers/1.json

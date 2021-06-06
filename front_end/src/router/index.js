@@ -127,23 +127,22 @@ export const constantRoutes = [
     path: '/customer',
     component: Layout,
     redirect: '/customer/index',
-    // hidden: true,
     children: [
       {
         path: 'index',
         component: () => import('@/views/customer/index'),
         name: 'Customer',
         meta: { title: 'customer', icon: 'user', noCache: true }
+      },
+      {
+        path: 'new',
+        component: () => import('@/views/customer/new'),
+        // name: 'Customer',
+        // meta: { title: 'customer', icon: 'user', noCache: true },
+        hidden: true
       }
     ]
-  },
-  {
-    path: '/customer/new',
-    component: Layout,
-    // redirect: '/customer/index',
-    hidden: true,
   }
-
 ]
 
 /**

@@ -8,5 +8,9 @@ Rails.application.routes.draw do
           passwords: 'api/v1/auth/passwords'
       }
     end
+    namespace :v1 do
+      get '/infos', to: 'infos#index'
+      resources :customers
+    end
   end
 end

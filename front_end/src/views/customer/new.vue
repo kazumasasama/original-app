@@ -4,16 +4,16 @@
       <el-input v-model="form.name" />
     </el-form-item>
     <el-form-item label="Phone1">
-      <el-input v-model="form.phone1" />
+      <el-input v-model="form.phone_number1" />
     </el-form-item>
     <el-form-item label="Phone2">
-      <el-input v-model="form.phone2" />
+      <el-input v-model="form.phone_number2" />
     </el-form-item>
     <el-form-item label="Email">
       <el-input v-model="form.email" />
     </el-form-item>
     <el-form-item label="Post Code">
-      <el-input v-model="form.postcode" />
+      <el-input v-model="form.post_code" />
     </el-form-item>
     <el-form-item label="Prefecture">
       <el-select v-model="form.prefecture" placeholder="please select prefecture">
@@ -25,7 +25,7 @@
       <el-input v-model="form.address" />
     </el-form-item>
     <el-form-item label="Gender">
-      <el-radio-group v-model="form.gender">
+      <el-radio-group v-model="form.gender_id">
         <el-radio label="Not known" />
         <el-radio label="Male" />
         <el-radio label="Female" />

@@ -1,7 +1,19 @@
-import { getCustomerInfo } from '@/api/customer'
+import { getCustomerInfo, createCustomer } from '@/api/customer'
+
 
 const state = {
-  customerAll: []
+  customerAll: [],
+  name: '',
+  phone_number1: '',
+  phone_number2: '',
+  email: '',
+  post_code: '',
+  prefecture: '',
+  address: '',
+  gender_id: '',
+  birthday: '',
+  memo: '',
+  new_or_returning: ''
 }
 
 const mutations = {
@@ -26,6 +38,13 @@ const actions = {
         commit('SET_CUSTOMER_ALL', data)
         resolve(data)
       }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  createCustomer({}, data) {
+    return new Promise((resolve, reject) => {
+      createCustomer(data).catch(error => {
         reject(error)
       })
     })

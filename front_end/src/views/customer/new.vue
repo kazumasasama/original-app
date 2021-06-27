@@ -55,25 +55,31 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       form: {
         name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
+        phone_number1: '',
+        phone_number2: '',
+        email: '',
+        post_code: '',
+        prefecture: '',
+        address: '',
+        gender_id: '',
+        birthday: '',
+        memo: '',
+        new_or_returning: ''
       }
     }
   },
   methods: {
-    onSubmit() {
-      console.log('submit!')
+      onSubmit: function () {
+        if (!this.form.name) return;
+        this.$store.dispatch('customer/createCustomer', this.form)
+        this.$router.push({ path: 'customer/index' })
+      }
     }
-  }
 }
 </script>

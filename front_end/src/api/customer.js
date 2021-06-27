@@ -7,3 +7,12 @@ export function getCustomerInfo(token) {
     params: { token }
   })
 }
+
+export function createCustomer(data) {
+  return request({
+    url: 'customers',
+    method: 'post',
+    data
+  })
+}
+

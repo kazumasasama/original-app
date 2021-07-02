@@ -22,7 +22,9 @@
 
 <script>
 export default {
+  //　親要素からのデータの参照（親要素に記述されたカスタムタグからの値を受け取る変数）
   props: {
+    // getters経由　customerAll: state => state.customerAll
     customers: {
       type: Array,
       default() {

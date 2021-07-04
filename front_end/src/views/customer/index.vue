@@ -7,7 +7,7 @@
     </el-row>
     <!-- v-bind:属性="オブジェクト・配列" -->
     <!-- 子要素に記述のprops:{customers:にデータを渡す -->
-    <CustomerTable :customers="customers" />
+    <CustomerTable :customers="customers" @handleClick="update" />
   </div>
 </template>
 
@@ -31,6 +31,13 @@ export default {
     //store/modules/customerのアクションの呼び出し
     //全てのcustomerのdataの呼び出し
     this.$store.dispatch('customer/getCustomerInfo')
+  },
+  methods: {
+    update() {
+      this.$router.push({
+        path: '/customer/edit'
+      })
+    }
   }
 }
 </script>

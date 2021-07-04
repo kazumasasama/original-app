@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(version: 2021_05_09_051637) do
     t.integer "gender_id"
     t.date "birthday"
     t.text "memo"
-    t.boolean "new_or_returning"
+    t.integer "new_or_returning"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["gender_id"], name: "index_customers_on_gender_id"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -68,5 +67,4 @@ ActiveRecord::Schema.define(version: 2021_05_09_051637) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "customers", "genders"
 end

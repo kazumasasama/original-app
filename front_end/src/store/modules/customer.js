@@ -1,6 +1,5 @@
 import { getCustomerInfo, createCustomer } from '@/api/customer'
 
-
 const state = {
   customerAll: [],
   name: '',
@@ -42,7 +41,14 @@ const actions = {
       })
     })
   },
-  createCustomer({}, data) {
+  createCustomer({ commit, state }, data) {
+    return new Promise((resolve, reject) => {
+      createCustomer(data).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  editCustomer({ commit, state }, data) {
     return new Promise((resolve, reject) => {
       createCustomer(data).catch(error => {
         reject(error)

@@ -16,3 +16,11 @@ export function createCustomer(data) {
   })
 }
 
+export function editCustomer(data) {
+  return request({
+    url: 'customers',
+    method: 'put',
+    data
+  })
+}
+

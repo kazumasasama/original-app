@@ -93,7 +93,7 @@
       </el-radio-group>
     </el-form-item>
     <el-form-item>
-      //クリックでonSubmitイベントが発火
+      <!-- クリックでonSubmitイベントが発火 -->
       <el-button type="primary" @click="onSubmit">Create</el-button>
       <el-button>Cancel</el-button>
     </el-form-item>
@@ -121,11 +121,11 @@ export default {
     }
   },
   methods: {
-    onSubmit: function () {
-      if (!this.form.name) return;
+    onSubmit() {
+      if (!this.form.name) return
       // store/modules/customerのアクションcreateCustomerを呼び出し、
       this.$store.dispatch('customer/createCustomer', this.form)
-      this.$router.push({ path: 'customer/index' })
+      this.$router.push({ path: '/customer/index' })
     }
   }
 }

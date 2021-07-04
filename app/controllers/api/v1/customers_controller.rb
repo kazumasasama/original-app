@@ -23,17 +23,20 @@ class Api::V1::CustomersController < ApplicationController
   # POST /customers or /customers.json
   def create
     @customer = Customer.new(customer_params)
-
-    respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: "Customer was successfully created." }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
+    if @customer.save
+      render json: { status: 'SUCCESS', message: 'Saved customer', data: @customer }
     end
   end
+  #   respond_to do |format|
+  #     if @customer.save
+  #       format.html { redirect_to @customer, notice: "Customer was successfully created." }
+  #       format.json { render :show, status: :created, location: @customer }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @customer.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /customers/1 or /customers/1.json
   def update

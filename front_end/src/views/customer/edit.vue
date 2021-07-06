@@ -28,11 +28,15 @@ export default {
       process: 'Edit'
     }
   },
+  created() {
+    // サーバから最新データを取得する
+    this.form = this.$route.params.form
+  },
   methods: {
     handleSubmit() {
       if (!this.form.name) return
       // store/modules/customerのアクションeditCustomerを呼び出し、
-      this.$store.dispatch('customer/createCustomer', this.form)
+      this.$store.dispatch('customer/editCustomer', this.form)
       this.$router.push({ path: '/customer/index' })
     }
   }

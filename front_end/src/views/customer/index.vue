@@ -10,6 +10,7 @@
     <CustomerTable
       :customers="customers"
       @handleEdit="update"
+      @handleDelete="doDelete"
     />
   </div>
 </template>
@@ -33,13 +34,18 @@ export default {
   mounted() {
     // store/modules/customerのアクションの呼び出し
     // 全てのcustomerのdataの呼び出し
-    this.$store.dispatch('customer/getCustomerInfo')
+    this.$store.dispatch('customer/getCustomers')
   },
   methods: {
-    update() {
+    update(index, row) {
       this.$router.push({
-        path: '/customer/edit'
+        name: 'editCustomer',
+        params: { form: row }
       })
+    },
+    doDelete(index, row) {
+      this.$store.dispatch('customer/deleteCustomer', row)
+      this.$store.dispatch('customer/getCustomers')
     }
   }
 }

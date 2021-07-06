@@ -1,4 +1,9 @@
-import { getCustomerInfo, createCustomer } from '@/api/customer'
+import {
+  getCustomers,
+  createCustomer,
+  editCustomer,
+  deleteCustomer
+} from '@/api/customer'
 
 const state = {
   customerAll: [],
@@ -26,10 +31,10 @@ const getters = {
 }
 
 const actions = {
-  // get user info
-  getCustomerInfo({ commit, state }) {
+  // get customer list
+  getCustomers({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getCustomerInfo(state.token).then(response => {
+      getCustomers(state.token).then(response => {
         const { data } = response
         if (!data) {
           reject('Verification failed, please Login again.')
@@ -50,7 +55,14 @@ const actions = {
   },
   editCustomer({ commit, state }, data) {
     return new Promise((resolve, reject) => {
-      createCustomer(data).catch(error => {
+      editCustomer(data).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  deleteCustomer({ commit, state }, data) {
+    return new Promise((resolve, reject) => {
+      deleteCustomer(data).catch(error => {
         reject(error)
       })
     })

@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-export function getCustomerInfo(token) {
+export function getCustomers(token) {
   return request({
     url: 'customers',
     method: 'get',
@@ -18,9 +18,16 @@ export function createCustomer(data) {
 
 export function editCustomer(data) {
   return request({
-    url: 'customers',
+    url: `customers/${data.id}`,
     method: 'put',
     data
+  })
+}
+
+export function deleteCustomer(data) {
+  return request({
+    url: `customers/${data.id}`,
+    method: 'delete'
   })
 }
 

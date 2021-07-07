@@ -9,7 +9,7 @@
     <!-- 子要素に記述のprops:{customers:にデータを渡す -->
     <CustomerTable
       :customers="customers"
-      @handleEdit="update"
+      @handleEdit="doUpdate"
       @handleDelete="doDelete"
     />
   </div>
@@ -37,7 +37,7 @@ export default {
     this.$store.dispatch('customer/getCustomers')
   },
   methods: {
-    update(index, row) {
+    doUpdate(index, row) {
       this.$router.push({
         name: 'editCustomer',
         params: { form: row }
@@ -45,7 +45,9 @@ export default {
     },
     doDelete(index, row) {
       this.$store.dispatch('customer/deleteCustomer', row)
-      this.$store.dispatch('customer/getCustomers')
+      this.$nextTick(() => {
+        this.$store.dispatch('customer/getCustomers')
+      })
     }
   }
 }

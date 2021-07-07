@@ -1,9 +1,14 @@
 <template>
-  <CustomerForm
-    :form="form"
-    :process="process"
-    @handleSubmit="handleSubmit"
-  />
+  <div class="form">
+    <el-row>
+      <h1>変更</h1>
+    </el-row>
+    <CustomerForm
+      :form="form"
+      :process="process"
+      @handleSubmit="handleSubmit"
+    />
+  </div>
 </template>
 
 <script>
@@ -42,3 +47,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.form {
+  width: 800px;
+  margin: 20px;
+}
+</style>

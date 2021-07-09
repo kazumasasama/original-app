@@ -23,38 +23,23 @@ class Api::V1::CustomersController < ApplicationController
   # POST /customers or /customers.json
   def create
     @customer = Customer.new(customer_params)
-
-    respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: "Customer was successfully created." }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
+    if @customer.save
+      render json: { status: 'SUCCESS', message: 'Saved customer', data: @customer }
     end
   end
 
   # PATCH/PUT /customers/1 or /customers/1.json
   def update
-    respond_to do |format|
-      if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: "Customer was successfully updated." }
-        format.json { render :show, status: :ok, location: @customer }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+      render json: { status: 'SUCCESS', message: 'Saved customer', data: @customer }
     end
   end
 
   # DELETE /customers/1 or /customers/1.json
   def destroy
-    @customer.destroy
-    respond_to do |format|
-      format.html { redirect_to customers_url, notice: "Customer was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    Customer.find(params[:id]).destroy
+    render json: { status: 'SUCCESS', message: 'Removed customer' }
   end
 
   private
@@ -65,6 +50,8 @@ class Api::V1::CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.fetch(:customer, {})
+      params.fetch(:customer, {}).permit(
+        :name, :phone_number1, :phone_number2, :email, :post_code, :prefecture, :address, :gender_id, :birthday, :memo, :new_or_returning
+      )
     end
 end

@@ -8,10 +8,10 @@ class CreateCustomers < ActiveRecord::Migration[6.1]
       t.string :address
       t.string :prefecture
       t.string :post_code
-      t.references :gender, foreign_key: true
+      t.integer :gender_id
       t.date :birthday
       t.text :memo
-      t.boolean :new_or_returning
+      t.integer :new_or_returning
 
       t.timestamps
     end

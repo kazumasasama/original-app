@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <el-row>
-      <h1>新規登録</h1>
+      <h1>変更</h1>
     </el-row>
     <CustomerForm
       :form="form"
@@ -30,14 +30,18 @@ export default {
         memo: '',
         new_or_returning: ''
       },
-      process: 'Create'
+      process: 'Edit'
     }
+  },
+  created() {
+    // サーバから最新データを取得する
+    this.form = this.$route.params.form
   },
   methods: {
     handleSubmit() {
       if (!this.form.name) return
-      // store/modules/customerのアクションcreateCustomerを呼び出し、
-      this.$store.dispatch('customer/createCustomer', this.form)
+      // store/modules/customerのアクションeditCustomerを呼び出し、
+      this.$store.dispatch('customer/editCustomer', this.form)
       this.$router.push({ path: '/customer/index' })
     }
   }

@@ -63,7 +63,9 @@ export default {
     i18n: '多言語',
     externalLink: '外部リンク',
     profile: 'プロフィール',
-    customer: '顧客情報'
+    customer: '顧客情報',
+    edit_customer: '顧客情報変更',
+    new_customer: '顧客情報追加'
   },
   navbar: {
     dashboard: 'トップ',

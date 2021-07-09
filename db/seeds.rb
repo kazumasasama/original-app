@@ -8,3 +8,10 @@
 
 puts 'ユーザー'
 User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+puts '性別'
+Gender.create!(name: 'Not known', g_id: 0 )
+Gender.create!(name: 'Male', g_id: 1 )
+Gender.create!(name: 'Female', g_id: 2 )
+Gender.create!(name: 'Self-described', g_id: 3 )
+Gender.create!(name: 'Not applicable', g_id: 4 )

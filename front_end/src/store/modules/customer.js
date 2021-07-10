@@ -1,5 +1,6 @@
 import {
   getCustomers,
+  showCustomer,
   createCustomer,
   editCustomer,
   deleteCustomer
@@ -42,6 +43,13 @@ const actions = {
         commit('SET_CUSTOMER_ALL', data)
         resolve(data)
       }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  showCustomer({ commit, state }, data) {
+    return new Promise((resolve, reject) => {
+      showCustomer(data).catch(error => {
         reject(error)
       })
     })

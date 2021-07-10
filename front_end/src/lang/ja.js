@@ -65,7 +65,8 @@ export default {
     profile: 'プロフィール',
     customer: '顧客情報',
     edit_customer: '顧客情報変更',
-    new_customer: '顧客情報追加'
+    new_customer: '顧客情報追加',
+    show_customer: '顧客情報詳細'
   },
   navbar: {
     dashboard: 'トップ',

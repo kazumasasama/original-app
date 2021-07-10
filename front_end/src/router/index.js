@@ -110,6 +110,13 @@ export const constantRoutes = [
         meta: { title: 'customer', icon: 'user', noCache: true }
       },
       {
+        path: 'show',
+        component: () => import('@/views/customer/show'),
+        name: 'showCustomer',
+        meta: { title: 'show_customer', noCache: true },
+        hidden: true
+      },
+      {
         path: 'new',
         component: () => import('@/views/customer/new'),
         name: 'newCustomer',

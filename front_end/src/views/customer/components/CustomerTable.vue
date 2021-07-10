@@ -4,8 +4,8 @@
     style="width: 100%"
   >
     <el-table-column
-      prop="date"
-      label="Date"
+      prop="id"
+      label="ID"
       width="180"
     />
     <el-table-column
@@ -19,6 +19,7 @@
     />
     <el-table-column label="Operations">
       <template slot-scope="scope">
+        <el-button size="mini" @click="handleDetail(scope.$index, scope.row)">Detail</el-button>
         <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
         <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
       </template>
@@ -39,6 +40,9 @@ export default {
     }
   },
   methods: {
+    handleDetail(index, row) {
+      this.$emit('handleDetail', index, row)
+    },
     handleEdit(index, row) {
       this.$emit('handleEdit', index, row)
     },

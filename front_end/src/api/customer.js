@@ -8,6 +8,14 @@ export function getCustomers(token) {
   })
 }
 
+export function showCustomer(data) {
+  return request({
+    url: `customers/${data.id}`,
+    method: 'get',
+    data
+  })
+}
+
 export function createCustomer(data) {
   return request({
     url: 'customers',

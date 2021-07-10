@@ -49,7 +49,7 @@
     <el-form-item>
       <!-- クリックでonSubmitイベントが発火 -->
       <el-button type="primary" @click="handleSubmit">{{ process }}</el-button>
-      <el-button>Cancel</el-button>
+      <el-button @click="cancelBtn">Cancel</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -96,6 +96,9 @@ export default {
     },
     handleSubmit() {
       this.$emit('handleSubmit')
+    },
+    cancelBtn() {
+      this.$emit('cancelBtn')
     }
   }
 }

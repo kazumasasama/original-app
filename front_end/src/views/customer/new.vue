@@ -7,6 +7,7 @@
       :form="form"
       :process="process"
       @handleSubmit="handleSubmit"
+      @cancelBtn="cancelBtn"
     />
   </div>
 </template>
@@ -39,6 +40,11 @@ export default {
       // store/modules/customerのアクションcreateCustomerを呼び出し、
       this.$store.dispatch('customer/createCustomer', this.form)
       this.$router.push({ path: '/customer/index' })
+    },
+    cancelBtn() {
+      if (confirm("Are you sure? This will take you to index page")) {
+        this.$router.push({ path: '/customer/index' })
+      }
     }
   }
 }

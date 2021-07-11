@@ -12,6 +12,7 @@
       @handleDetail="doShow"
       @handleEdit="doUpdate"
       @handleDelete="doDelete"
+      :key="key"
     />
   </div>
 </template>
@@ -23,6 +24,11 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Customer',
   components: { CustomerTable },
+  data() {
+    return {
+      key: 0
+    }
+  },
   // データに処理を与えてプロパティにする
   computed: {
     ...mapGetters({
@@ -51,9 +57,14 @@ export default {
       })
     },
     doDelete(index, row) {
+      const answer = confirm('Are you sure?')
+      // いいえの時に次の処理
+      if (!answer) return
       this.$store.dispatch('customer/deleteCustomer', row)
+      // 処理の次に行く
       this.$nextTick(() => {
         this.$store.dispatch('customer/getCustomers')
+        this.key = this.key ? 0 : 1
       })
     }
   }

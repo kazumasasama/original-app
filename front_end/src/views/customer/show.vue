@@ -1,30 +1,19 @@
 <template>
-  <el-tabs type="border-card" @tab-click="handleClick">
-    <el-tab-pane>
-      <template #label>
-        <span><i class="el-icon-user"></i> Info</span>
-      </template>
-      <template>
-        <el-card class="box-card">
-          <div v-for="o in 4" :key="o" class="text item">
-            {{'List item ' + o }}
-          </div>
-        </el-card>
-      </template>
-    </el-tab-pane>
-    <el-tab-pane>
-      <template #label>
-        <span><i class="el-icon-date"></i> Appointments</span>
-      </template>
-      Route
-    </el-tab-pane>
-  </el-tabs>
+<CustomerDetail
+  :form="form"
+  :process="process"
+  @handleSubmit="handleSubmit"
+  @cancelBtn="cancelBtn"
+  @close="close"
+/>
 </template>
 
 
 
 <script>
+import CustomerDetail from './components/CustomerDetail'
 export default {
+  components: { CustomerDetail },
   data() {
     return {
       form: {
@@ -58,6 +47,9 @@ export default {
       if (confirm("Are you sure? This will take you to index page")) {
         this.$router.push({ path: '/customer/index' })
       }
+    },
+    close() {
+      this.$router.push({ path: '/customer/index' })
     }
   }
 }
@@ -67,5 +59,9 @@ export default {
 .form {
   width: 800px;
   margin: 20px;
+}
+
+.container {
+  height: 500px;
 }
 </style>

@@ -1,27 +1,27 @@
 <template>
-  <el-tabs type="border-card">
-  <el-tab-pane>
-    <template #label>
-      <span><i class="el-icon-user"></i> Detail</span>
-    </template>
-    <el-table
-      :data="this.data"
-      style="width: 100%"
-    >
-    <el-table-column
-      prop="name"
-      label="Name"
-      width="1000%"
-    />
-    </el-table>
-  </el-tab-pane>
-<el-tab-pane>
-    <template #label>
-      <span><i class="el-icon-date"></i> Appointments</span>
-    </template>
-    Route
-  </el-tab-pane></el-tabs>
+  <el-tabs type="border-card" @tab-click="handleClick">
+    <el-tab-pane>
+      <template #label>
+        <span><i class="el-icon-user"></i> Info</span>
+      </template>
+      <template>
+        <el-card class="box-card">
+          <div v-for="o in 4" :key="o" class="text item">
+            {{'List item ' + o }}
+          </div>
+        </el-card>
+      </template>
+    </el-tab-pane>
+    <el-tab-pane>
+      <template #label>
+        <span><i class="el-icon-date"></i> Appointments</span>
+      </template>
+      Route
+    </el-tab-pane>
+  </el-tabs>
 </template>
+
+
 
 <script>
 export default {

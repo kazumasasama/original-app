@@ -5,28 +5,37 @@
         <span>新規登録</span>
       </router-link>
     </el-row>
+    <el-dialog title="詳細" :visible.sync="showVisible">
+      <CustomerDetail
+        :form="form"
+        @handleClose="doClose"
+      />
+    </el-dialog>
     <!-- v-bind:属性="オブジェクト・配列" -->
     <!-- 子要素に記述のprops:{customers:にデータを渡す -->
     <CustomerTable
+      :key="key"
       :customers="customers"
       @handleDetail="doShow"
       @handleEdit="doUpdate"
       @handleDelete="doDelete"
-      :key="key"
     />
   </div>
 </template>
 
 <script>
 import CustomerTable from './components/CustomerTable'
+import CustomerDetail from './components/CustomerDetail'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Customer',
-  components: { CustomerTable },
+  components: { CustomerTable, CustomerDetail },
   data() {
     return {
-      key: 0
+      form: {},
+      key: 0,
+      showVisible: false
     }
   },
   // データに処理を与えてプロパティにする
@@ -45,10 +54,8 @@ export default {
   },
   methods: {
     doShow(index, row) {
-      this.$router.push({
-        name: 'showCustomer',
-        params: { form: row }
-      })
+      this.form = row
+      this.showVisible = true
     },
     doUpdate(index, row) {
       this.$router.push({
@@ -66,6 +73,9 @@ export default {
         this.$store.dispatch('customer/getCustomers')
         this.key = this.key ? 0 : 1
       })
+    },
+    doClose() {
+      this.showVisible = false
     }
   }
 }

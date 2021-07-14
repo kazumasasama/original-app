@@ -42,7 +42,7 @@ export default {
       this.$router.push({ path: '/customer/index' })
     },
     cancelBtn() {
-      if (confirm("Are you sure? This will take you to index page")) {
+      if (confirm('Are you sure? This will take you to index page')) {
         this.$router.push({ path: '/customer/index' })
       }
     }

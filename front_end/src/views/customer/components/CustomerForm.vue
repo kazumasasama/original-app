@@ -25,11 +25,11 @@
     </el-form-item>
     <el-form-item label="Gender">
       <el-radio-group v-model="form.gender_id">
-        <el-radio label="Not known" />
-        <el-radio label="Male" />
-        <el-radio label="Female" />
-        <el-radio label="Self-described" />
-        <el-radio label="Not applicable" />
+        <el-radio :label="0">Not known</el-radio>
+        <el-radio :label="1">Male</el-radio>
+        <el-radio :label="2">Female</el-radio>
+        <el-radio :label="3">Self-described</el-radio>
+        <el-radio :label="4">Not applicable</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="Birthday">
@@ -42,8 +42,8 @@
     </el-form-item>
     <el-form-item label="New/Returning">
       <el-radio-group v-model="form.new_or_returning">
-        <el-radio label="New" />
-        <el-radio label="Returning" />
+        <el-radio :label="0">New</el-radio>
+        <el-radio :label="1">Returning</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item>

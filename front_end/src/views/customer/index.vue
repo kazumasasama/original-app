@@ -8,11 +8,11 @@
     <!-- v-bind:属性="オブジェクト・配列" -->
     <!-- 子要素に記述のprops:{customers:にデータを渡す -->
     <CustomerTable
+      :key="key"
       :customers="customers"
       @handleDetail="doShow"
       @handleEdit="doUpdate"
       @handleDelete="doDelete"
-      :key="key"
     />
   </div>
 </template>

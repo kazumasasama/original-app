@@ -1,14 +1,12 @@
 <template>
-<CustomerDetail
-  :form="form"
-  :process="process"
-  @handleSubmit="handleSubmit"
-  @cancelBtn="cancelBtn"
-  @close="close"
-/>
+  <CustomerDetail
+    :form="form"
+    :process="process"
+    @handleSubmit="handleSubmit"
+    @cancelBtn="cancelBtn"
+    @close="close"
+  />
 </template>
-
-
 
 <script>
 import CustomerDetail from './components/CustomerDetail'
@@ -28,7 +26,7 @@ export default {
         birthday: '',
         memo: '',
         new_or_returning: ''
-      },
+      }
       // process: 'Edit'
     }
   },
@@ -37,14 +35,14 @@ export default {
     this.form = this.$route.params.form
   },
   methods: {
-    // handleSubmit() {
-    //   if (!this.form.name) return
-    //   // store/modules/customerのアクションeditCustomerを呼び出し、
-    //   this.$store.dispatch('customer/editCustomer', this.form)
-    //   this.$router.push({ path: '/customer/index' })
-    // },
+    handleSubmit() {
+      if (!this.form.name) return
+      // store/modules/customerのアクションeditCustomerを呼び出し、
+      this.$store.dispatch('customer/editCustomer', this.form)
+      this.$router.push({ path: '/customer/index' })
+    },
     cancelBtn() {
-      if (confirm("Are you sure? This will take you to index page")) {
+      if (confirm('Are you sure? This will take you to index page')) {
         this.$router.push({ path: '/customer/index' })
       }
     },

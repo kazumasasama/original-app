@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <el-row>
-      <h1>新規登録</h1>
+      <h1>{{ $t('customer.add') }}</h1>
     </el-row>
     <CustomerForm
       :form="form"
@@ -42,7 +42,7 @@ export default {
       this.$router.push({ path: '/customer/index' })
     },
     cancelBtn() {
-      if (confirm("Are you sure? This will take you to index page")) {
+      if (confirm('Are you sure? This will take you to index page')) {
         this.$router.push({ path: '/customer/index' })
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <el-row>
-      <h1>変更</h1>
+      <h1>{{ $t('customer.edit_customer') }}</h1>
     </el-row>
     <CustomerForm
       :form="form"
@@ -31,7 +31,7 @@ export default {
         memo: '',
         new_or_returning: ''
       },
-      process: 'Edit'
+      process: 'Update'
     }
   },
   created() {
@@ -46,7 +46,7 @@ export default {
       this.$router.push({ path: '/customer/index' })
     },
     cancelBtn() {
-      if (confirm("Are you sure? This will take you to index page")) {
+      if (confirm('Are you sure? This will take you to index page')) {
         this.$router.push({ path: '/customer/index' })
       }
     }

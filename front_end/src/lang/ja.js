@@ -176,5 +176,37 @@ export default {
     tagsView: 'Tags-View 開く',
     fixedHeader: 'Fixed Header',
     sidebarLogo: 'Sidebar Logo'
+  },
+  customer: {
+    add: '新規登録',
+    detail: '詳細',
+    edit: '編集',
+    edit_customer: '顧客情報更新',
+    delete: '消去',
+    cancel: 'キャンセル',
+    new: 'ご新規様',
+    returning: 'お得意様',
+    id: '顧客番号',
+    name: '氏名',
+    address: '住所',
+    operations: '',
+    phone1: '電話番号1',
+    phone2: '電話番号2',
+    email: 'メールアドレス',
+    post_code: '郵便番号',
+    prefecture: '都道府県',
+    choose_pref: '都道府県選択',
+    gender: '性別',
+    birthday: '生年月日',
+    pick: 'カレンダーから選択',
+    memo: 'メモ',
+    new_or_returning: '状態',
+    not_known: '不詳',
+    male: '男性',
+    female: '女性',
+    self: 'その他',
+    not_applicable: '該当なし'
   }
 }
+
+// {{ $t('navbar.profile') }}

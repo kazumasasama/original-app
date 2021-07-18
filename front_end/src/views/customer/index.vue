@@ -2,7 +2,7 @@
   <div class="app-container documentation-container">
     <el-row>
       <router-link :to="'/customer/new'" class="el-button el-button--primary">
-        <span>新規登録</span>
+        <span>{{ $t('customer.add') }}</span>
       </router-link>
     </el-row>
     <el-dialog title="詳細" :visible.sync="showVisible">

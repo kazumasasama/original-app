@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <el-row>
-      <h1>変更</h1>
+      <h1>{{ $t('customer.edit_customer') }}</h1>
     </el-row>
     <CustomerForm
       :form="form"

@@ -5,23 +5,23 @@
   >
     <el-table-column
       prop="id"
-      label="ID"
+      :label="$t('customer.id')"
       width="180"
     />
     <el-table-column
       prop="name"
-      label="Name"
+      :label="$t('customer.name')"
       width="180"
     />
     <el-table-column
       prop="address"
-      label="Address"
+      :label="$t('customer.address')"
     />
-    <el-table-column label="Operations">
+    <el-table-column :label="$t('customer.operations')">
       <template slot-scope="scope">
-        <el-button size="mini" @click="handleDetail(scope.$index, scope.row)">Detail</el-button>
-        <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+        <el-button size="mini" @click="handleDetail(scope.$index, scope.row)">{{ $t('customer.detail') }}</el-button>
+        <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">{{ $t('customer.edit') }}</el-button>
+        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">{{ $t('customer.delete') }}</el-button>
       </template>
     </el-table-column>
   </el-table>

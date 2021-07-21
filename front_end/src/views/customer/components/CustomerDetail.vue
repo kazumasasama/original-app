@@ -1,40 +1,40 @@
 <template>
   <el-form label-width="120px">
-    <el-form-item label="Name">
+    <el-form-item :label="$t('customer.name')">
       {{ form.name }}
     </el-form-item>
-    <el-form-item label="Phone1">
+    <el-form-item :label="$t('customer.phone1')">
       {{ form.phone_number1 }}
     </el-form-item>
-    <el-form-item label="Phone2">
+    <el-form-item :label="$t('customer.phone2')">
       {{ form.phone_number2 }}
     </el-form-item>
-    <el-form-item label="Email">
+    <el-form-item :label="$t('customer.email')">
       {{ form.email }}
     </el-form-item>
-    <el-form-item label="Post Code">
+    <el-form-item :label="$t('customer.post_code')">
       {{ form.post_code }}
     </el-form-item>
-    <el-form-item label="Prefecture">
+    <el-form-item :label="$t('customer.prefecture')">
       {{ form.prefecture }}
     </el-form-item>
-    <el-form-item label="Address">
+    <el-form-item :label="$t('customer.address')">
       {{ form.address }}
     </el-form-item>
-    <el-form-item label="Gender">
+    <el-form-item :label="$t('customer.gender')">
       {{ form.gender_id }}
     </el-form-item>
-    <el-form-item label="Birthday">
+    <el-form-item :label="$t('customer.name')">
       {{ form.birthday }}
     </el-form-item>
-    <el-form-item label="Memo">
+    <el-form-item :label="$t('customer.memo')">
       {{ form.memo }}
     </el-form-item>
-    <el-form-item label="New/Returning">
+    <el-form-item :label="$t('customer.new_or_returning')">
       {{ form.new_or_returning }}
     </el-form-item>
     <div>
-      <el-button @click="handleClose">Close</el-button>
+      <el-button @click="handleClose">{{ $t('tagsView.close') }}</el-button>
     </div>
   </el-form>
 </template>

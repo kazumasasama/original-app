@@ -34,7 +34,7 @@
       {{ form.new_or_returning }}
     </el-form-item>
     <div>
-      <el-button @click="handleClose">{{ $t('tagsView.close') }}</el-button>
+      <el-button @click="close">{{ $t('tagsView.close') }}</el-button>
     </div>
   </el-form>
 </template>
@@ -62,8 +62,8 @@ export default {
     }
   },
   methods: {
-    handleClose() {
-      this.$emit('handleClose')
+    close() {
+      this.$emit('close')
     }
   }
 }

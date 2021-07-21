@@ -64,7 +64,7 @@ export default {
       })
     },
     doDelete(index, row) {
-      const answer = confirm('Are you sure?')
+      const answer = confirm(this.$t('customer.message.delete'))
       // いいえの時に次の処理
       if (!answer) return
       this.$store.dispatch('customer/deleteCustomer', row)

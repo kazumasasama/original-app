@@ -8,7 +8,7 @@
     <el-dialog title="詳細" :visible.sync="showVisible">
       <CustomerDetail
         :form="form"
-        @handleClose="doClose"
+        @close="doClose"
       />
     </el-dialog>
     <!-- v-bind:属性="オブジェクト・配列" -->

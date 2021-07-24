@@ -17,7 +17,7 @@
     </el-form-item>
     <el-form-item :label="$t('customer.prefecture')">
       <el-select v-model="form.prefecture" :placeholder="$t('customer.choose_pref')">
-        <el-option label="北海道" value="hokkaido" />
+        <el-option v-for="option in prefectures" :key="option.value" :label="option.text">{{ $t(option.text) }}</el-option>
       </el-select>
     </el-form-item>
     <el-form-item :label="$t('customer.address')">
@@ -25,11 +25,7 @@
     </el-form-item>
     <el-form-item :label="$t('customer.gender')">
       <el-radio-group v-model="form.gender_id">
-        <el-radio :label="0">{{ $t('gender.not_known') }}</el-radio>
-        <el-radio :label="1">{{ $t('gender.male') }}</el-radio>
-        <el-radio :label="2">{{ $t('gender.female') }}</el-radio>
-        <el-radio :label="3">{{ $t('gender.self') }}</el-radio>
-        <el-radio :label="4">{{ $t('gender.not_applicable') }}</el-radio>
+        <el-radio v-for="g in genders" :key="g.value" :label="g.value" border>{{ $t(g.text) }}</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item :label="$t('customer.birthday')">
@@ -48,7 +44,7 @@
     </el-form-item>
     <el-form-item>
       <!-- クリックでonSubmitイベントが発火 -->
-      <el-button type="primary" @click="handleSubmit">{{ process }}</el-button>
+      <el-button type="primary" @click="handleSubmit">{{ $t(process) }}</el-button>
       <el-button @click="cancelBtn">{{ $t('customer.cancel') }}</el-button>
     </el-form-item>
   </el-form>
@@ -80,13 +76,20 @@ export default {
       default() {
         return ''
       }
+    },
+    prefectures: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    genders: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
-  // data() {
-  //   return {
-  //     form: this.initForm
-  //   }
-  // },
   methods: {
     onSubmit() {
       if (!this.form.name) return

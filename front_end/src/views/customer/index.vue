@@ -8,7 +8,7 @@
     <el-dialog title="詳細" :visible.sync="showVisible">
       <CustomerDetail
         :form="form"
-        @handleClose="doClose"
+        @close="doClose"
       />
     </el-dialog>
     <!-- v-bind:属性="オブジェクト・配列" -->
@@ -64,7 +64,7 @@ export default {
       })
     },
     doDelete(index, row) {
-      const answer = confirm('Are you sure?')
+      const answer = confirm(this.$t('customer.message.delete'))
       // いいえの時に次の処理
       if (!answer) return
       this.$store.dispatch('customer/deleteCustomer', row)

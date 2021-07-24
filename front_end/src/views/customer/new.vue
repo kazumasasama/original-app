@@ -5,6 +5,8 @@
     </el-row>
     <CustomerForm
       :form="form"
+      :prefectures="prefectures"
+      :genders="genders"
       :process="process"
       @handleSubmit="handleSubmit"
       @cancelBtn="cancelBtn"
@@ -14,6 +16,7 @@
 
 <script>
 import CustomerForm from './components/CustomerForm'
+import { mapGetters } from 'vuex'
 export default {
   components: { CustomerForm },
   data() {
@@ -31,8 +34,14 @@ export default {
         memo: '',
         new_or_returning: ''
       },
-      process: 'Create'
+      process: 'customer.create'
     }
+  },
+  computed: {
+    ...mapGetters({
+      prefectures: 'prefectures',
+      genders: 'genders'
+    })
   },
   methods: {
     handleSubmit() {
@@ -52,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-  width: 800px;
+  width: 80%;
   margin: 20px;
 }
 </style>

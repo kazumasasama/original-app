@@ -5,6 +5,8 @@
     </el-row>
     <CustomerForm
       :form="form"
+      :prefectures="prefectures"
+      :genders="genders"
       :process="process"
       @handleSubmit="handleSubmit"
       @cancelBtn="cancelBtn"
@@ -14,6 +16,7 @@
 
 <script>
 import CustomerForm from './components/CustomerForm'
+import { mapGetters } from 'vuex'
 export default {
   components: { CustomerForm },
   data() {
@@ -31,8 +34,14 @@ export default {
         memo: '',
         new_or_returning: ''
       },
-      process: 'Update'
+      process: 'customer.edit'
     }
+  },
+  computed: {
+    ...mapGetters({
+      prefectures: 'prefectures',
+      genders: 'genders'
+    })
   },
   created() {
     // サーバから最新データを取得する
@@ -46,7 +55,7 @@ export default {
       this.$router.push({ path: '/customer/index' })
     },
     cancelBtn() {
-      if (confirm('Are you sure? This will take you to index page')) {
+      if (confirm(this.$t('customer.message.cancel'))) {
         this.$router.push({ path: '/customer/index' })
       }
     }

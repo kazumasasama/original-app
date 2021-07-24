@@ -25,11 +25,11 @@
     </el-form-item>
     <el-form-item :label="$t('customer.gender')">
       <el-radio-group v-model="form.gender_id">
-        <el-radio :label="0">{{ $t('customer.not_known') }}</el-radio>
-        <el-radio :label="1">{{ $t('customer.male') }}</el-radio>
-        <el-radio :label="2">{{ $t('customer.female') }}</el-radio>
-        <el-radio :label="3">{{ $t('customer.self') }}</el-radio>
-        <el-radio :label="4">{{ $t('customer.not_applicable') }}</el-radio>
+        <el-radio :label="0">{{ $t('gender.not_known') }}</el-radio>
+        <el-radio :label="1">{{ $t('gender.male') }}</el-radio>
+        <el-radio :label="2">{{ $t('gender.female') }}</el-radio>
+        <el-radio :label="3">{{ $t('gender.self') }}</el-radio>
+        <el-radio :label="4">{{ $t('gender.not_applicable') }}</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item :label="$t('customer.birthday')">

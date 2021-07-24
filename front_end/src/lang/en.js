@@ -197,7 +197,9 @@ export default {
     birthday: 'Date of birth',
     pick: 'Pick a date',
     memo: 'Note',
-    new_or_returning: 'Customer type',
+    new_or_returning: 'Customer type'
+  },
+  gender: {
     not_known: 'Not known',
     male: 'Make',
     female: 'Female',

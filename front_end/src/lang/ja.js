@@ -200,7 +200,9 @@ export default {
     birthday: '生年月日',
     pick: 'カレンダーから選択',
     memo: 'メモ',
-    new_or_returning: '状態',
+    new_or_returning: '状態'
+  },
+  gender: {
     not_known: '不詳',
     male: '男性',
     female: '女性',

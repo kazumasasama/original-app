@@ -17,7 +17,7 @@
     </el-form-item>
     <el-form-item :label="$t('customer.prefecture')">
       <el-select v-model="form.prefecture" :placeholder="$t('customer.choose_pref')">
-        <el-option v-for="option in prefectures" :key="option.value" :label="option.text">{{ $t(option.text) }}</el-option>
+        <el-option v-for="option in prefectures" :key="option.value" :label="$t(option.text)" :value="option.value">{{ $t(option.text) }}</el-option>
       </el-select>
     </el-form-item>
     <el-form-item :label="$t('customer.address')">

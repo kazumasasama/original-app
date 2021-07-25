@@ -5,6 +5,9 @@
         <span>{{ $t('customer.add') }}</span>
       </router-link>
     </el-row>
+    <!-- sync修飾子を使うことで、propsで渡した値を子コンポーネントから操作可能にする -->
+    <!-- (子コンポーネントからのemitを受け取って値を操作する) -->
+    <!-- dataのshowVisibleがtrueになった時に表示される -->
     <el-dialog title="詳細" :visible.sync="showVisible">
       <CustomerDetail
         :form="form"

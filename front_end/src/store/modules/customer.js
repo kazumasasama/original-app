@@ -40,13 +40,26 @@ const actions = {
         if (!data) {
           reject('Verification failed, please Login again.')
         }
+        let prefecture = {}
+        let gender = {}
         const customers = data.map(customer => {
-          const prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
-          const gender = rootState.settings.genders.find(g => g.value === customer.gender)
+          // pはオブジェクトのいち行目が入る
+          if (customer.prefecture) {
+            prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
+          }
+          if (customer.gender) {
+            gender = rootState.settings.genders.find(g => g.value === customer.gender_id)
+          }
+          // const prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
+          // const gender = rootState.settings.genders.find(g => g.value === customer.gender)
           return {
+            // スプレッド構文
+            // 配列の省略　カスターマーの一行目の情報（オブジェクト）
             ...customer,
-            _prefecture: prefecture.text,
-            _gender: gender.text
+            _prefecture: prefecture ? prefecture.text : '',
+            _gender: gender ? gender.text : ''
+            // _prefecture: prefecture.text,
+            // _gender: gender.text
           }
         })
         commit('SET_CUSTOMER_ALL', customers)

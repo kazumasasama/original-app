@@ -6,7 +6,7 @@ class CreateCustomers < ActiveRecord::Migration[6.1]
       t.string :phone_number2
       t.string :email
       t.string :address
-      t.string :prefecture
+      t.integer :prefecture_id
       t.string :post_code
       t.integer :gender_id
       t.date :birthday

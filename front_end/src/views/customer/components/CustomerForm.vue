@@ -16,7 +16,7 @@
       <el-input v-model="form.post_code" />
     </el-form-item>
     <el-form-item :label="$t('customer.prefecture')">
-      <el-select v-model="form.prefecture" :placeholder="$t('customer.choose_pref')">
+      <el-select v-model="form.prefecture_id" :placeholder="$t('customer.choose_pref')">
         <el-option v-for="option in prefectures" :key="option.value" :label="$t(option.text)" :value="option.value">{{ $t(option.text) }}</el-option>
       </el-select>
     </el-form-item>
@@ -62,7 +62,7 @@ export default {
           phone_number2: '',
           email: '',
           post_code: '',
-          prefecture: '',
+          prefecture_id: '',
           address: '',
           gender_id: '',
           birthday: '',

@@ -16,6 +16,7 @@
     <el-table-column
       prop="_prefecture"
       :label="$t('customer.prefecture')"
+      width="180"
     />
     <el-table-column
       prop="address"

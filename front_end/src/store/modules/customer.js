@@ -1,3 +1,4 @@
+import i18n from '@/lang'
 import {
   getCustomers,
   showCustomer,
@@ -40,26 +41,17 @@ const actions = {
         if (!data) {
           reject('Verification failed, please Login again.')
         }
-        let prefecture = {}
-        let gender = {}
         const customers = data.map(customer => {
           // pはオブジェクトのいち行目が入る
-          if (customer.prefecture) {
-            prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
-          }
-          if (customer.gender) {
-            gender = rootState.settings.genders.find(g => g.value === customer.gender_id)
-          }
-          // const prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
-          // const gender = rootState.settings.genders.find(g => g.value === customer.gender)
+          const prefecture = customer.prefecture_id ? rootState.settings.prefectures.find(p => p.value === customer.prefecture_id) : {}
+          const gender = customer.gender_id ? rootState.settings.genders.find(g => g.value === customer.gender_id) : {}
           return {
             // スプレッド構文
-            // 配列の省略　カスターマーの一行目の情報（オブジェクト）
+            // 配列の省略 カスターマーの一行目の情報（オブジェクト）
             ...customer,
-            _prefecture: prefecture ? prefecture.text : '',
-            _gender: gender ? gender.text : ''
-            // _prefecture: prefecture.text,
-            // _gender: gender.text
+            _prefecture: i18n.t(prefecture.text),
+            _gender: i18n.t(gender.text),
+            _new_or_returning: customer.new_or_returning ? i18n.t('customer.returning') : i18n.t('customer.new')
           }
         })
         commit('SET_CUSTOMER_ALL', customers)

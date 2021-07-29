@@ -2,8 +2,6 @@
   <CustomerDetail
     :form="form"
     :process="process"
-    @handleSubmit="handleSubmit"
-    @cancelBtn="cancelBtn"
     @close="close"
   />
 </template>

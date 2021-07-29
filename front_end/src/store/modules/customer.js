@@ -43,18 +43,16 @@ const actions = {
         let prefecture = {}
         let gender = {}
         const customers = data.map(customer => {
-          // pはオブジェクトのいち行目が入る
+          // pはオブジェクトの１行目が入る
           if (customer.prefecture) {
-            prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
+            prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture - 0)
           }
-          if (customer.gender) {
-            gender = rootState.settings.genders.find(g => g.value === customer.gender_id)
+          if (customer.gender_id) {
+            gender = rootState.settings.genders.find(g => g.value === customer.gender_id - 0)
           }
-          // const prefecture = rootState.settings.prefectures.find(p => p.value === customer.prefecture)
-          // const gender = rootState.settings.genders.find(g => g.value === customer.gender)
           return {
             // スプレッド構文
-            // 配列の省略　カスターマーの一行目の情報（オブジェクト）
+            // 配列の省略・カスターマーの一行目の情報（オブジェクト）
             ...customer,
             _prefecture: prefecture ? prefecture.text : '',
             _gender: gender ? gender.text : ''

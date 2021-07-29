@@ -6,7 +6,7 @@
     <el-table-column
       prop="id"
       :label="$t('customer.id')"
-      width="180"
+      width="100"
     />
     <el-table-column
       prop="name"

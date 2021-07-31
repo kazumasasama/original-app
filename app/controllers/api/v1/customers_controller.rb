@@ -52,7 +52,7 @@ class Api::V1::CustomersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def customer_params
       params.fetch(:customer, {}).permit(
-        :name, :phone_number1, :phone_number2, :email, :post_code, :prefecture, :address, :gender_id, :birthday, :memo, :new_or_returning
+        :name, :phone_number1, :phone_number2, :email, :post_code, :prefecture_id, :address, :gender_id, :birthday, :memo, :new_or_returning
       )
     end
 end

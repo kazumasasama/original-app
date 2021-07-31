@@ -16,13 +16,13 @@
       {{ form.post_code }}
     </el-form-item>
     <el-form-item :label="$t('customer.prefecture')">
-      {{ form.prefecture }}
+      {{ form._prefecture }}
     </el-form-item>
     <el-form-item :label="$t('customer.address')">
       {{ form.address }}
     </el-form-item>
     <el-form-item :label="$t('customer.gender')">
-      {{ form.gender_id }}
+      {{ form._gender }}
     </el-form-item>
     <el-form-item :label="$t('customer.name')">
       {{ form.birthday }}
@@ -31,7 +31,7 @@
       {{ form.memo }}
     </el-form-item>
     <el-form-item :label="$t('customer.new_or_returning')">
-      {{ form.new_or_returning }}
+      {{ form._new_or_returning }}
     </el-form-item>
     <div>
       <el-button @click="close">{{ $t('tagsView.close') }}</el-button>
@@ -51,12 +51,15 @@ export default {
           phone_number2: '',
           email: '',
           post_code: '',
-          prefecture: '',
+          prefecture_id: '',
           address: '',
           gender_id: '',
           birthday: '',
           memo: '',
-          new_or_returning: ''
+          new_or_returning: '',
+          _prefecture: '',
+          _gender: '',
+          _new_or_returning: ''
         }
       }
     }

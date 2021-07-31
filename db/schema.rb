@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_05_09_051637) do
     t.string "phone_number2"
     t.string "email"
     t.string "address"
-    t.string "prefecture"
+    t.integer "prefecture_id"
     t.string "post_code"
     t.integer "gender_id"
     t.date "birthday"
